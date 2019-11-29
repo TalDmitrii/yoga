@@ -1,0 +1,11 @@
+.subscription {
+
+}
+
+.subsription__variation-list {
+  display: none;
+}
+
+.subscription__item input:checked ~ .subsription__variation-list {
+  display: block;
+}

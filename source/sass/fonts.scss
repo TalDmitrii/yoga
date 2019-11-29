@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Geometria";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100;
+  src: local("Geometria"),
+    url("../fonts/Geometria-Light.woff2") format("woff2"),
+    url("../fonts/Geometria-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Geometria";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local("Geometria"),
+    url("../fonts/Geometria-Medium.woff2") format("woff2"),
+    url("../fonts/Geometria-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Geometria";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: local("Geometria"),
+    url("../fonts/Geometria-Bold.woff2") format("woff2"),
+    url("../fonts/Geometria-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local("Caveat"),
+    url("../fonts/Caveat-Regular.woff2") format("woff2"),
+    url("../fonts/Caveat-Regular.woff") format("woff");
+}

@@ -1,0 +1,10 @@
+.start-screen {
+  background-image: url("../img/start-bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  @media (min-width: $desktop-width) {
+    background-image: url("../img/start-bg-desktop.png");
+  }
+}
