@@ -1,0 +1,17 @@
+.link-arrow {
+  display: inline-block;
+  vertical-align: middle;
+
+  font-size: 0;
+
+  padding: 0;
+  margin: 0;
+
+  background-color: $color-main;
+  background-image: url("../img/arrow.svg");
+  background-repeat: no-repeat;
+  background-size: 8px 14px;
+  background-position: center;
+  border: none;
+  outline: none;
+}

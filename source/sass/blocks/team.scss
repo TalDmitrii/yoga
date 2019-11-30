@@ -1,0 +1,93 @@
+.team {
+  margin-bottom: 60px;
+}
+
+.team__header {
+  margin-bottom: 40px;
+}
+
+.team__slider {
+  padding: 0 46px;
+}
+
+.team__list {
+  @include indents-zero();
+}
+
+.team__item-header {
+  display: flex;
+
+  margin-bottom: 20px;
+}
+
+.team__item-header img {
+  flex-shrink: 0;
+
+  object-fit: cover;
+}
+
+.team__instructor-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 15px;
+
+  background-color: $color-white;
+  box-shadow: $box-shadow;
+}
+
+.team__instructor-header h3 {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 10px;
+  line-height: 15px;
+  color: $color-red;
+
+  margin: 0;
+}
+
+.team__instructor-header span {
+  font-size: 10px;
+  line-height: 20px;
+}
+
+.team__link {
+  display: none;
+}
+
+.team__item-bottom h3 {
+  display: none;
+
+  margin: 0;
+}
+
+.team__item-bottom span {
+  display: inline-block;
+  vertical-align: middle;
+
+  font-size: 10px;
+  line-height: 20px;
+  color: $color-red;
+}
+
+.team__item-bottom p {
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.team__slider-button {
+  top: 0;
+  width: 16px;
+  height: 31px;
+}
+
+.team__slider-button--prev {
+  left: 15px;
+  transform: rotate(180deg);
+}
+
+.team__slider-button--next {
+  right: 15px;
+}

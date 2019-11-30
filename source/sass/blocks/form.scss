@@ -1,0 +1,75 @@
+.form {
+  padding: 70px 10px 70px 35px;
+
+  background-color: $color-bg;
+  background-image: url("../img/footer-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+    background-image: url("../img/footer-bg@2x.jpg");
+  }
+}
+
+.form__header {
+  font-size: 20px;
+  line-height: 27px;
+
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.form form {
+  width: 78.125vw;
+}
+
+.form__label {
+  position: relative;
+  display: inline-block;
+}
+
+.form__label:hover span {
+  transform: translateY(-15px);
+
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.form__label span {
+  position: absolute;
+  left: 0;
+  top: 9px;
+  transition: transform 0.3s, font-size 0.3s;
+
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.form input {
+  height: 38px;
+
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-main;
+
+  margin-bottom: 20px;
+  padding: 4px 0;
+
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid $color-main;
+  outline: none;
+}
+
+.form input::placeholder {
+  font-size: 0;
+}
+
+.form input:focus ~ span,
+.form input:valid ~ span {
+  transform: translateY(-15px);
+
+  font-size: 10px;
+  line-height: 14px;
+}

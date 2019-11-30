@@ -1,0 +1,132 @@
+.main-navigation__list--hidden {
+  display: none;
+}
+
+.main-navigation__toggle {
+  position: relative;
+  width: auto;
+  height: 30px;
+
+  font-size: 0;
+
+  margin-left: 5px;
+  padding: 25px;
+  // padding: 15px 10px 15px 45px;
+
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.main-navigation__toggle span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-block;
+  width: 30px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+
+    background-color: $color-white;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+
+    box-shadow: 0 -6px 0 0 $color-white;
+  }
+}
+
+.main-navigation__toggle--closed span {
+  &::before {
+    animation-name: burger-top-close;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+  }
+
+  &::after {
+    animation-name: burger-bottom-close;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+  }
+}
+
+.main-navigation__toggle--open span {
+  &::before {
+    animation-name: burger-top-open;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+  }
+
+  &::after {
+    animation-name: burger-bottom-open;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes burger-top-close {
+  50% {
+    transform: translateY(6px);
+  }
+
+  100% {
+    transform: translateY(6px) rotate(45deg);
+  }
+}
+
+@keyframes burger-bottom-close {
+  50% {
+    transform: translateY(-6px);
+    box-shadow: none;
+  }
+
+  100% {
+    transform: translateY(-6px) rotate(-45deg);
+    box-shadow: none;
+  }
+}
+
+@keyframes burger-top-open {
+  0% {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  50% {
+    transform: translateY(6px) rotate(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes burger-bottom-open {
+  0% {
+    transform: translateY(-6px) rotate(-45deg);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(0);
+    box-shadow: none;
+  }
+
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 -6px 0 0 $color-white;
+  }
+}

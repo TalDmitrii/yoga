@@ -1,0 +1,11 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 50px;
+}
+
+.page-header__link {
+  margin-right: 15px;
+}

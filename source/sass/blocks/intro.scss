@@ -1,0 +1,60 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro__h1 {
+  font-size: 67px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  color: $color-white;
+
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.intro__h2 {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+
+  margin: 0;
+}
+
+.intro__link {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 174px;
+
+  font-size: 10px;
+  line-height: 12px;
+  color: $color-red;
+  text-decoration: none;
+
+  padding-left: 37px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+
+    background-color: $color-red;
+    background-image: url("../img/arrow.svg");
+    background-repeat: no-repeat;
+    background-size: 6px 12px;
+    background-position: center;
+  }
+}
+
+.intro__bottom {
+  display: none;
+  width: 100%;
+}

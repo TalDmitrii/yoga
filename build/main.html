@@ -13,10 +13,13 @@
 
 <body class="no-js">
   <div class="start-screen">
-    <header>
-      <nav>
-        <button type="button">Меню</button>
-        <ul class="main-navigation">
+    <header class="page-header">
+      <nav class="main-navigation js-navigation">
+        <button class="main-navigation__toggle js-navigation__toggle" type="button">
+          <span></span>
+          Меню
+        </button>
+        <ul class="main-navigation__list js-navigation__list">
           <li class="main-navigation__item"><a href="#">Направления</a></li>
           <li class="main-navigation__item"><a href="#">Абонементы</a></li>
           <li class="main-navigation__item"><a href="#">Наша команда</a></li>
@@ -24,14 +27,14 @@
         </ul>
       </nav>
 
-      <a href="tel:+78126901010" aria-label="Позвоните нам">8 (812) 690-10-10</a>
+      <a class="link page-header__link" href="tel:+78126901010" aria-label="Позвоните нам">8 (812) 690-10-10</a>
     </header>
 
     <div class="intro">
-      <h2>Почувствуй расслабление в своем теле</h2>
-      <h1>YOGA</h1>
+      <h2 class="intro__h2">Почувствуй расслабление в своем теле</h2>
+      <h1 class="intro__h1">YOGA</h1>
 
-      <a href="#">Запишитесь на бесплатное пробное занятие</a>
+      <a class="intro__link" href="#">Запишитесь на бесплатное пробное занятие</a>
 
       <div class="intro__bottom">
         <ul class="social">
@@ -89,7 +92,7 @@
                   <p>Емельянова Полина</p>
                 </div>
               </div>
-              <a href="#">Перейти на страницу Хатха-йога</a>
+              <a class="link-arrow" href="#">Перейти на страницу Хатха-йога</a>
             </div>
           </div>
         </div>
@@ -115,7 +118,7 @@
                       <p>Емельянова Полина</p>
                     </div>
                   </div>
-                  <a href="#">Перейти на страницу Хатха-йога</a>
+                  <a class="link-arrow" href="#">Перейти на страницу Хатха-йога</a>
                 </div>
               </div>
             </li>
@@ -139,7 +142,7 @@
                       <p>Емельянова Полина</p>
                     </div>
                   </div>
-                  <a href="#">Перейти на страницу Хатха-йога</a>
+                  <a class="link-arrow" href="#">Перейти на страницу Хатха-йога</a>
                 </div>
               </div>
             </li>
@@ -149,254 +152,289 @@
       </div>
     </section>
 
-    <section class="subscription">
-      <h2 class="subscription__header section-header">Абонементы</h2>
+    <section class="subscription tabs">
+      <div class="subscription__content-wrapper">
+        <h2 class="subscription__header section-header">Абонементы</h2>
 
-      <div class="subscription__label-wrapper">
-        <label for="months-1">1 месяц</label>
-        <label for="months-6">6 месяцев</label>
-        <label for="months-12">12 месяцев</label>
+        <div class="subscription__tabs-wrapper block-tabs">
+          <a class="subscription__tab block-tabs__tab block-tabs__tab--active" href="#">1 месяц</a>
+          <a class="subscription__tab block-tabs__tab" href="#">6 месяцев</a>
+          <a class="subscription__tab block-tabs__tab" href="#">12 месяцев</a>
+        </div>
+
+        <ul class="subscription__list">
+
+          <li class="subscription__item tabs__content">
+            <ul class="subscription__variation-list">
+              <li class="subscription__variant">
+                <h3>Утро</h3>
+                <p>
+                  <span>Посещение</span>
+                  <span>с <time>11:00</time> до <time>16:00</time></span>
+                  <span class="subscription__cost">1300 Р</span>
+                </p>
+                <a class="subscription__button" href="#">Заказать абонемент</a>
+              </li>
+              <li class="subscription__variant">
+                <h3>Безлимит</h3>
+                <p>
+                  <span>Посещение не ограничено по времени</span>
+                  <span class="subscription__cost">2800 Р</span>
+                </p>
+                <a class="subscription__button" href="#">Заказать абонемент</a>
+              </li>
+              <li class="subscription__variant">
+                <h3>Вечер</h3>
+                <p>
+                  <span>Посещение</span>
+                  <span>с <time>17:00</time> до <time>21:00</time></span>
+                  <span class="subscription__cost">2000 Р</span>
+                </p>
+                <a class="subscription__button" href="#">Заказать абонемент</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="subscription__item tabs__content">
+            <ul class="subscription__variation-list">
+              <li class="subscription__variant">
+                <h3>Утро</h3>
+                <p>
+                  <span>Посещение</span>
+                  <span>с <time>11:00</time> до <time>16:00</time></span>
+                  <span class="subscription__cost">10000 Р</span>
+                </p>
+                <a class="subscription__button" href="#">Заказать абонемент</a>
+              </li>
+              <li class="subscription__variant">
+                <h3>Безлимит</h3>
+                <p>
+                  <span>Посещение не ограничено по времени</span>
+                  <span class="subscription__cost">20000 Р</span>
+                </p>
+                <a class="subscription__button" href="#">Заказать абонемент</a>
+              </li>
+              <li class="subscription__variant">
+                <h3>Вечер</h3>
+                <p>
+                  <span>Посещение</span>
+                  <span>с <time>17:00</time> до <time>21:00</time></span>
+                  <span class="subscription__cost">15000 Р</span>
+                </p>
+                <a class="subscription__button" href="#">Заказать абонемент</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="subscription__item tabs__content">
+            <ul class="subscription__variation-list">
+              <li class="subscription__variant">
+                <h3>Утро</h3>
+                <p>
+                  <span>Посещение</span>
+                  <span>с <time>11:00</time> до <time>16:00</time></span>
+                  <span class="subscription__cost">20000 Р</span>
+                </p>
+                <a class="subscription__button" href="#">Заказать абонемент</a>
+              </li>
+              <li class="subscription__variant">
+                <h3>Безлимит</h3>
+                <p>
+                  <span>Посещение не ограничено по времени</span>
+                  <span class="subscription__cost">30000 Р</span>
+                </p>
+                <a class="subscription__button" href="#">Заказать абонемент</a>
+              </li>
+              <li class="subscription__variant">
+                <h3>Вечер</h3>
+                <p>
+                  <span>Посещение</span>
+                  <span>с <time>17:00</time> до <time>21:00</time></span>
+                  <span class="subscription__cost">25000 Р</span>
+                </p>
+                <a class="subscription__button" href="#">Заказать абонемент</a>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
       </div>
-
-      <ul class="subscription__list">
-
-        <li class="subscription__item">
-          <input type="radio" name="subscription" id="months-1" checked="">
-    
-          <ul class="subsription__variation-list">
-            <li class="subscription__variant">
-              <h3>Утро</h3>
-              <p>
-                <span>Посещение</span>
-                <span>с <time>11:00</time> до <time>16:00</time></span>
-              </p>
-              <a href="#">Заказать абонемент</a>
-            </li>
-            <li class="subscription__variant">
-              <h3>Безлимит</h3>
-              <p>
-                Посещение не ограничено по времени
-              </p>
-              <a href="#">Заказать абонемент</a>
-            </li>
-            <li class="subscription__variant">
-              <h3>Вечер</h3>
-              <p>
-                <span>Посещение</span>
-                <span>с <time>17:00</time> до <time>21:00</time></span>
-              </p>
-              <a href="#">Заказать абонемент</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="subscription__item">
-          <input type="radio" name="subscription" id="months-6">
-          
-          <ul class="subsription__variation-list">
-            <li class="subscription__variant">
-              <h3>Утро</h3>
-              <p>
-                <span>Посещение</span>
-                <span>с <time>11:00</time> до <time>16:00</time></span>
-              </p>
-              <a href="#">Заказать абонемент</a>
-            </li>
-            <li class="subscription__variant">
-              <h3>Безлимит</h3>
-              <p>
-                Посещение не ограничено по времени
-              </p>
-              <a href="#">Заказать абонемент</a>
-            </li>
-            <li class="subscription__variant">
-              <h3>Вечер</h3>
-              <p>
-                <span>Посещение</span>
-                <span>с <time>17:00</time> до <time>21:00</time></span>
-              </p>
-              <a href="#">Заказать абонемент</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="subscription__item">
-          <input type="radio" name="subscription" id="months-12">
-          
-          <ul class="subsription__variation-list">
-            <li class="subscription__variant">
-              <h3>Утро</h3>
-              <p>
-                <span>Посещение</span>
-                <span>с <time>11:00</time> до <time>16:00</time></span>
-              </p>
-              <a href="#">Заказать абонемент</a>
-            </li>
-            <li class="subscription__variant">
-              <h3>Безлимит</h3>
-              <p>
-                Посещение не ограничено по времени
-              </p>
-              <a href="#">Заказать абонемент</a>
-            </li>
-            <li class="subscription__variant">
-              <h3>Вечер</h3>
-              <p>
-                <span>Посещение</span>
-                <span>с <time>17:00</time> до <time>21:00</time></span>
-              </p>
-              <a href="#">Заказать абонемент</a>
-            </li>
-          </ul>
-        </li>
-
-      </ul>
     </section>
 
     <section class="team">
-      <h2 class="team__header section-header">Абонементы</h2>
+      <h2 class="team__header section-header">Наша команда</h2>
 
-      <ul class="team__list">
+      <div class="team__slider swiper-container">
+        
+        <ul class="team__list swiper-wrapper">
+          <li class="team__item swiper-slide">
+            <div class="team__item-header">
+              <img src="img/instructor-1.jpg" alt="Инструктор" width="82" height="82">
+              <div class="team__instructor-info">
+                <div class="team__instructor-header">
+                  <h3>
+                    <span>Инструктор</span>
+                    <span>Серёжа Попов</span>
+                  </h3>
+                  <span>Хатха-йога</span>
+                </div>
+                <div class="team__instructor-social">
+                  <ul class="social">
+                    <li class="social__item">
+                      <a href="#">
+                        <svg width="21" height="21">
+                          <use xlink:href="img/sprite.svg#vk-icon"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="social__item">
+                      <a href="#">
+                        <svg width="21" height="21">
+                          <use xlink:href="img/sprite.svg#twitter-icon"></use>
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
 
-        <li class="team__item">
-          <div class="team__item-header">
-            <img src="img/instructor-1.jpg" alt="Инструктор" width="82" height="82">
-            <div class="team__instructor-info">
-              <div class="team__instuctor-header">
-                <h3>
-                  <span>Инструктор</span>
-                  <span>Серёжа Попов</span>
-                </h3>
-                <span>Хатха-йога</span>
-              </div>
-              <div class="team__instructor-social">
-                <ul class="social">
-                  <li class="social__item">
-                    <a href="#">
-                      <svg width="21" height="21">
-                        <use xlink:href="img/sprite.svg#vk-icon"></use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li class="social__item">
-                    <a href="#">
-                      <svg width="21" height="21">
-                        <use xlink:href="img/sprite.svg#twitter-icon"></use>
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
-
-                <a href="#">Смотреть</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="team__item-bottom">
-            <h3>Серёжа Попов</h3>
-            <span>Опыт преподавания 8 дет</span>
-            <p>
-              Практикует с 2011 года, является сертифицированным инструктором по флоу- йоге. Большой опыт преподавания йоги для начинающих и продолжающих.
-              Обучался в Индии (International Association of Yoga: classical yoga, master of principles yoga therapy), Непале (опыт медитативных и дыхательных техник, проживание в Ашраме), Москва (Аштанга йога центр 108 А.Константинова), Московский центр классической йоги Виктора Бойко.
-              Сертифицированный инструктор по фитнесу и йоге (БГУФК), по массажу (Оздоровительный Витал – центр №401).
-              Организатор и участник многочисленных конвенций и семинаров по йоге, медитативным техникам и здоровому питанию.
-            </p>
-          </div>
-        </li>
-
-        <li class="team__item">
-          <div class="team__item-header">
-            <img src="img/instructor-1.jpg" alt="Инструктор" width="82" height="82">
-            <div class="team__instructor-info">
-              <div class="team__instuctor-header">
-                <h3>
-                  <span>Инструктор</span>
-                  <span>Серёжа Попов</span>
-                </h3>
-                <span>Флоу-йога</span>
-              </div>
-              <div class="team__instructor-social">
-                <ul class="social">
-                  <li class="social__item">
-                    <a href="#">
-                      <svg width="21" height="21">
-                        <use xlink:href="img/sprite.svg#vk-icon"></use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li class="social__item">
-                    <a href="#">
-                      <svg width="21" height="21">
-                        <use xlink:href="img/sprite.svg#twitter-icon"></use>
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
-
-                <a href="#">Смотреть</a>
+                  <a class="team__link" href="#">Смотреть</a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="team__item-bottom">
-            <h3>Серёжа Попов</h3>
-            <span>Опыт преподавания 8 дет</span>
-            <p>
-              Практикует с 2011 года, является сертифицированным инструктором по флоу- йоге. Большой опыт преподавания йоги для начинающих и продолжающих.
-              Обучался в Индии (International Association of Yoga: classical yoga, master of principles yoga therapy), Непале (опыт медитативных и дыхательных техник, проживание в Ашраме), Москва (Аштанга йога центр 108 А.Константинова), Московский центр классической йоги Виктора Бойко.
-              Сертифицированный инструктор по фитнесу и йоге (БГУФК), по массажу (Оздоровительный Витал – центр №401).
-              Организатор и участник многочисленных конвенций и семинаров по йоге, медитативным техникам и здоровому питанию.
-            </p>
-          </div>
-        </li>
+            <div class="team__item-bottom">
+              <h3>Серёжа Попов</h3>
+              <span>Опыт преподавания 8 дет</span>
+              <p>
+                Практикует с 2011 года, является сертифицированным инструктором по флоу- йоге. Большой опыт преподавания йоги для начинающих и продолжающих.
+              </p>
+              <p>
+                Обучался в Индии (International Association of Yoga: classical yoga, master of principles yoga therapy), Непале (опыт медитативных и дыхательных техник, проживание в Ашраме), Москва (Аштанга йога центр 108 А.Константинова), Московский центр классической йоги Виктора Бойко.
+              </p>
+              <p>
+                Сертифицированный инструктор по фитнесу и йоге (БГУФК), по массажу (Оздоровительный Витал – центр №401).
+              </p>
+              <p>
+                Организатор и участник многочисленных конвенций и семинаров по йоге, медитативным техникам и здоровому питанию.
+              </p>
+            </div>
+          </li>
 
-        <li class="team__item">
-          <div class="team__item-header">
-            <img src="img/instructor-1.jpg" alt="Инструктор" width="82" height="82">
-            <div class="team__instructor-info">
-              <div class="team__instuctor-header">
-                <h3>
-                  <span>Инструктор</span>
-                  <span>Серёжа Попов</span>
-                </h3>
-                <span>Йога в гамаках</span>
-              </div>
-              <div class="team__instructor-social">
-                <ul class="social">
-                  <li class="social__item">
-                    <a href="#">
-                      <svg width="21" height="21">
-                        <use xlink:href="img/sprite.svg#vk-icon"></use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li class="social__item">
-                    <a href="#">
-                      <svg width="21" height="21">
-                        <use xlink:href="img/sprite.svg#twitter-icon"></use>
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
+          <li class="team__item swiper-slide">
+            <div class="team__item-header">
+              <img src="img/instructor-1.jpg" alt="Инструктор" width="82" height="82">
+              <div class="team__instructor-info">
+                <div class="team__instructor-header">
+                  <h3>
+                    <span>Инструктор</span>
+                    <span>Серёжа Попов</span>
+                  </h3>
+                  <span>Флоу-йога</span>
+                </div>
+                <div class="team__instructor-social">
+                  <ul class="social">
+                    <li class="social__item">
+                      <a href="#">
+                        <svg width="21" height="21">
+                          <use xlink:href="img/sprite.svg#vk-icon"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="social__item">
+                      <a href="#">
+                        <svg width="21" height="21">
+                          <use xlink:href="img/sprite.svg#twitter-icon"></use>
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
 
-                <a href="#">Смотреть</a>
+                  <a class="team__link" href="#">Смотреть</a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="team__item-bottom">
-            <h3>Серёжа Попов</h3>
-            <span>Опыт преподавания 8 дет</span>
-            <p>
-              Практикует с 2011 года, является сертифицированным инструктором по флоу- йоге. Большой опыт преподавания йоги для начинающих и продолжающих.
-              Обучался в Индии (International Association of Yoga: classical yoga, master of principles yoga therapy), Непале (опыт медитативных и дыхательных техник, проживание в Ашраме), Москва (Аштанга йога центр 108 А.Константинова), Московский центр классической йоги Виктора Бойко.
-              Сертифицированный инструктор по фитнесу и йоге (БГУФК), по массажу (Оздоровительный Витал – центр №401).
-              Организатор и участник многочисленных конвенций и семинаров по йоге, медитативным техникам и здоровому питанию.
-            </p>
-          </div>
-        </li>
+            <div class="team__item-bottom">
+              <h3>Серёжа Попов</h3>
+              <span>Опыт преподавания 8 дет</span>
+              <p>
+                Практикует с 2011 года, является сертифицированным инструктором по флоу- йоге. Большой опыт преподавания йоги для начинающих и продолжающих.
+              </p>
+              <p>
+                Обучался в Индии (International Association of Yoga: classical yoga, master of principles yoga therapy), Непале (опыт медитативных и дыхательных техник, проживание в Ашраме), Москва (Аштанга йога центр 108 А.Константинова), Московский центр классической йоги Виктора Бойко.
+              </p>
+              <p>
+                Сертифицированный инструктор по фитнесу и йоге (БГУФК), по массажу (Оздоровительный Витал – центр №401).
+              </p>
+              <p>
+                Организатор и участник многочисленных конвенций и семинаров по йоге, медитативным техникам и здоровому питанию.
+              </p>
+              <p>
+                Практикует с 2011 года, является сертифицированным инструктором по флоу- йоге. Большой опыт преподавания йоги для начинающих и продолжающих.
+              </p>
+              <p>
+                Обучался в Индии (International Association of Yoga: classical yoga, master of principles yoga therapy), Непале (опыт медитативных и дыхательных техник, проживание в Ашраме), Москва (Аштанга йога центр 108 А.Константинова), Московский центр классической йоги Виктора Бойко.
+              </p>
+              <p>
+                Сертифицированный инструктор по фитнесу и йоге (БГУФК), по массажу (Оздоровительный Витал – центр №401).
+              </p>
+              <p>
+                Организатор и участник многочисленных конвенций и семинаров по йоге, медитативным техникам и здоровому питанию.
+              </p>
+            </div>
+          </li>
 
-      </ul>
+          <li class="team__item swiper-slide">
+            <div class="team__item-header">
+              <img src="img/instructor-1.jpg" alt="Инструктор" width="82" height="82">
+              <div class="team__instructor-info">
+                <div class="team__instructor-header">
+                  <h3>
+                    <span>Инструктор</span>
+                    <span>Серёжа Попов</span>
+                  </h3>
+                  <span>Йога в гамаках</span>
+                </div>
+                <div class="team__instructor-social">
+                  <ul class="social">
+                    <li class="social__item">
+                      <a href="#">
+                        <svg width="21" height="21">
+                          <use xlink:href="img/sprite.svg#vk-icon"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="social__item">
+                      <a href="#">
+                        <svg width="21" height="21">
+                          <use xlink:href="img/sprite.svg#twitter-icon"></use>
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+
+                  <a class="team__link" href="#">Смотреть</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="team__item-bottom">
+              <h3>Серёжа Попов</h3>
+              <span>Опыт преподавания 8 дет</span>
+              <p>
+                Практикует с 2011 года, является сертифицированным инструктором по флоу- йоге. Большой опыт преподавания йоги для начинающих и продолжающих.
+                Обучался в Индии (International Association of Yoga: classical yoga, master of principles yoga therapy), Непале (опыт медитативных и дыхательных техник, проживание в Ашраме), Москва (Аштанга йога центр 108 А.Константинова), Московский центр классической йоги Виктора Бойко.
+                Сертифицированный инструктор по фитнесу и йоге (БГУФК), по массажу (Оздоровительный Витал – центр №401).
+                Организатор и участник многочисленных конвенций и семинаров по йоге, медитативным техникам и здоровому питанию.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+        <!-- Add Arrows -->
+        <button type="button" class="team__slider-button team__slider-button--next swiper-button-next link-arrow"></button>
+        <button type="button" class="team__slider-button team__slider-button--prev swiper-button-prev link-arrow"></button>
+      </div>
     </section>
 
     <section class="feedback">
@@ -404,98 +442,117 @@
         Обратная связь
       </h2>
 
-      <ul class="feedback__list">
+      <div class="feedback__slider swiper-container">
+        <ul class="feedback__list swiper-wrapper">
 
-        <li class="feedback__item">
-          <p>
-            Хожу на йогу вечером, чтобы расслабиться после  тяжелого трудового дня. И после занятий наступает спокойствие!
-            Йога это отличный способ быстрои качественно расслабиться. Спасибо инструктору Марине.
-          </p>
-          <div class="feedback__item-content">
-            <img src="img/instructor-1.jpg" alt="Автор отзыва" width="52" height="51">
-            <div class="feedback__item-info">
-              <h3>Серёжа Попов</h3>
-              <time datetime="2015-11-18">18 ноября 2015</time>
-              <ul class="social">
-                <li class="social__item">
-                  <a href="#">
-                    <svg width="21" height="21">
-                      <use xlink:href="img/sprite.svg#vk-icon"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li class="social__item">
-                  <a href="#">
-                    <svg width="21" height="21">
-                      <use xlink:href="img/sprite.svg#twitter-icon"></use>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
+          <li class="feedback__item swiper-slide">
+            <p>
+              Хожу на йогу вечером, чтобы расслабиться после  тяжелого трудового дня. И после занятий наступает спокойствие!
+            </p>
+            <p>
+              Йога это отличный способ быстрои качественно расслабиться. Спасибо инструктору Марине.
+            </p>
+            <div class="feedback__item-content">
+              <img src="img/instructor-1.jpg" alt="Автор отзыва" width="52" height="51">
+              <div class="feedback__item-info">
+                <h3>Серёжа Попов</h3>
+                <time datetime="2015-11-18">18 ноября 2015</time>
+                <ul class="social">
+                  <li class="social__item">
+                    <a href="#">
+                      <svg width="21" height="21">
+                        <use xlink:href="img/sprite.svg#vk-icon"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social__item">
+                    <a href="#">
+                      <svg width="21" height="21">
+                        <use xlink:href="img/sprite.svg#twitter-icon"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
 
-        <li class="feedback__item">
-          <p>
-            Хожу на йогу вечером, чтобы расслабиться после  тяжелого трудового дня. И после занятий наступает спокойствие!
-            Йога это отличный способ быстрои качественно расслабиться. Спасибо инструктору Марине.
-          </p>
-          <div class="feedback__item-content">
-            <img src="img/instructor-1.jpg" alt="Автор отзыва" width="52" height="51">
-            <div class="feedback__item-info">
-              <h3>Серёжа Попов</h3>
-              <time datetime="2015-11-18">18 ноября 2015</time>
-              <ul class="social">
-                <li class="social__item">
-                  <a href="#">
-                    <svg width="21" height="21">
-                      <use xlink:href="img/sprite.svg#vk-icon"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li class="social__item">
-                  <a href="#">
-                    <svg width="21" height="21">
-                      <use xlink:href="img/sprite.svg#twitter-icon"></use>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
+          <li class="feedback__item swiper-slide">
+            <p>
+              Хожу на йогу вечером, чтобы расслабиться после  тяжелого трудового дня. И после занятий наступает спокойствие!
+            </p>
+            <p>
+              Йога это отличный способ быстрои качественно расслабиться. Спасибо инструктору Марине.
+            </p>
+            <p>
+              Хожу на йогу вечером, чтобы расслабиться после  тяжелого трудового дня. И после занятий наступает спокойствие!
+            </p>
+            <p>
+              Йога это отличный способ быстрои качественно расслабиться. Спасибо инструктору Марине.
+            </p>
+            <div class="feedback__item-content">
+              <img src="img/instructor-1.jpg" alt="Автор отзыва" width="52" height="51">
+              <div class="feedback__item-info">
+                <h3>Серёжа Попов</h3>
+                <time datetime="2015-11-18">18 ноября 2015</time>
+                <ul class="social">
+                  <li class="social__item">
+                    <a href="#">
+                      <svg width="21" height="21">
+                        <use xlink:href="img/sprite.svg#vk-icon"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social__item">
+                    <a href="#">
+                      <svg width="21" height="21">
+                        <use xlink:href="img/sprite.svg#twitter-icon"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
 
-        <li class="feedback__item">
-          <p>
-            Хожу на йогу вечером, чтобы расслабиться после  тяжелого трудового дня. И после занятий наступает спокойствие!
-            Йога это отличный способ быстрои качественно расслабиться. Спасибо инструктору Марине.
-          </p>
-          <div class="feedback__item-content">
-            <img src="img/instructor-1.jpg" alt="Автор отзыва" width="52" height="51">
-            <div class="feedback__item-info">
-              <h3>Серёжа Попов</h3>
-              <time datetime="2015-11-18">18 ноября 2015</time>
-              <ul class="social">
-                <li class="social__item">
-                  <a href="#">
-                    <svg width="21" height="21">
-                      <use xlink:href="img/sprite.svg#vk-icon"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li class="social__item">
-                  <a href="#">
-                    <svg width="21" height="21">
-                      <use xlink:href="img/sprite.svg#twitter-icon"></use>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
+          <li class="feedback__item swiper-slide">
+            <p>
+              Хожу на йогу вечером, чтобы расслабиться после  тяжелого трудового дня. И после занятий наступает спокойствие!
+              Йога это отличный способ быстрои качественно расслабиться. Спасибо инструктору Марине.
+            </p>
+            <div class="feedback__item-content">
+              <img src="img/instructor-1.jpg" alt="Автор отзыва" width="52" height="51">
+              <div class="feedback__item-info">
+                <h3>Серёжа Попов</h3>
+                <time datetime="2015-11-18">18 ноября 2015</time>
+                <ul class="social">
+                  <li class="social__item">
+                    <a href="#">
+                      <svg width="21" height="21">
+                        <use xlink:href="img/sprite.svg#vk-icon"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social__item">
+                    <a href="#">
+                      <svg width="21" height="21">
+                        <use xlink:href="img/sprite.svg#twitter-icon"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+
+        </ul>
+
+        <div class="feedback__button-wrapper">
+          <div class="swiper-button-prev link-arrow"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next link-arrow"></div>
+        </div>
+      </div>
     </section>
     
   </main>
@@ -503,15 +560,17 @@
   <footer class="page-footer">
     <div class="page-footer__content-wrapper">
       <section class="form">
-        <h2 class="form__header section-header">Запишитесь на бесплатное пробное занятие</h2>
+        <h2 class="form__header">Запишитесь на бесплатное пробное занятие</h2>
 
         <form action="#">
-          <label for="name">
-            <input type="text" name="name" id="name" placeholder="Ваше имя">
+          <label class="form__label" for="name">
+            <input type="text" name="name" id="name" placeholder="Ваше имя" min="1" required="">
+            <span>Ваше имя</span>
           </label>
 
-          <label for="phone">
-            <input type="number" name="phone" id="phone" placeholder="Ваш телефон">
+          <label class="form__label" for="phone">
+            <input class="js-phone-mask" type="number" name="phone" id="phone" placeholder="Ваш телефон" required="">
+            <span>Ваш телефон</span>
           </label>
 
           <button type="submit">Оставить заявку</button>
@@ -584,6 +643,6 @@
     </picture> -->
 
 <script src="js/plugins/script.min.js"></script>
-<!-- <script src="js/script.min.js"></script> -->
+<script src="js/script.min.js"></script>
 </body>
 </html>
