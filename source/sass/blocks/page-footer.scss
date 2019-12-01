@@ -1,0 +1,31 @@
+.page-footer {
+  background-color: $color-main;
+}
+
+.page-footer__info {
+  color: $color-white;
+}
+
+.page-footer__bottom {
+  font-size: 12px;
+  line-height: 20px;
+  color: rgba($color-white, 0.5);
+
+  padding: 10px 35px 45px;
+}
+
+.page-footer__bottom a {
+  text-decoration: none;
+  outline: none;
+  transition: color 0.3s;
+}
+
+.page-footer__bottom a:hover,
+.page-footer__bottom a:focus {
+  color: $color-red;
+}
+
+.page-footer__soc {
+  margin-bottom: 20px;
+  padding: 0 35px;
+}

@@ -1,0 +1,36 @@
+.our-soc {
+  padding: 0;
+
+  // background-color: red;
+}
+
+.our-soc__list {
+  @include indents-zero();
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.our-soc__item {
+  // width: 30px;
+  // height: 30px;
+
+  margin-right: 25px;
+}
+
+.our-soc__item a {
+  display: flex;
+  align-self: center;
+
+  outline: none;
+}
+
+.our-soc__item a:hover path,
+.our-soc__item a:focus path {
+  fill: $color-red;
+}
+
+.our-soc__item path {
+  transition: fill 0.3s;
+  fill: $color-white;
+}
