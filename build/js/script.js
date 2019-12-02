@@ -141,6 +141,42 @@
 'use strict';
 
 (function () {
+  var actionBlock = document.querySelectorAll('.subscription__variant');
+
+  if (!actionBlock) return;
+
+  for (var i = 0; i < actionBlock.length; i++) {
+    actionBlock[i].addEventListener('mouseover', onBlockMouseoverHandler);
+  }
+
+  function onBlockMouseoverHandler(evt) {
+    var actionElement = this;
+
+    // Если событие произошло на активном элементе - выходит из функции.
+    if (actionElement.classList.contains('subscription__variant--active')) {
+      return;
+    }
+
+    // Находит родительский блок активного элемента и всех его потомков.
+    var parentActionElement = actionElement.parentElement;
+    var childrenParent = parentActionElement.children;
+
+    // Находит потомка с активным классом, и удаляет у него активный класс.
+    for (var i = 0; i < childrenParent.length; i++) {
+      if (childrenParent[i].classList.contains('subscription__variant--active')) {
+        childrenParent[i].classList.remove('subscription__variant--active');
+      }
+    }
+
+    // Добавляет активному элементу соответствующий класс.
+    actionElement.classList.add('subscription__variant--active');
+  }
+
+})();
+
+'use strict';
+
+(function () {
   var form = document.querySelector('.js-form');
 
   if (!form) return;
@@ -260,34 +296,110 @@
 'use strict';
 
 (function () {
-  var swiper = new Swiper('.feedback__slider', {
-    autoHeight: true, //enable auto height
-    slidesPerView: 1,
-    spaceBetween: 30,
+  var windowSize;
+  var tabletWidth = 768;
+  var slidesPerView;
+  var sliderSpaceBetween;
+  var sliderTypePagination;
+
+  setSliderSettings();
+
+  function setSliderSettings() {
+    windowSize = document.body.clientWidth;
+
+    if (windowSize < tabletWidth) {
+      slidesPerView = 1;
+      sliderSpaceBetween = 50;
+      sliderTypePagination = 'fraction';
+      
+    } else {
+      slidesPerView = 2;
+      sliderSpaceBetween = 50;
+      sliderTypePagination = 'bullets';
+    }
+  }
+
+
+  var mySlider = new Swiper('.feedback__slider', {
+    autoHeight: true,
+    slidesPerView: slidesPerView,
+    spaceBetween: sliderSpaceBetween,
+    grabCursor: true,
     
     pagination: {
       el: '.swiper-pagination',
-      type: 'fraction',
+      type: sliderTypePagination,
+      clickable: true,
     },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
   });
+
+
+
+  function changeSliderSettings() {
+    setSliderSettings();
+
+    mySlider.params.slidesPerView = slidesPerView;
+    mySlider.params.spaceBetween = sliderSpaceBetween;
+    mySlider.params.pagination.type = sliderTypePagination;
+    
+    mySlider.update();
+  };
+
+
+
+  window.addEventListener('resize', changeSliderSettings);
+
+
 })();
 
 'use strict';
 
 (function () {
+  var windowSize = document.body.clientWidth;
+  var tabletWidth = 768;
+  var slidesPerView;
+
+  setSliderSettings();
+
+  function setSliderSettings() {
+    if (windowSize < tabletWidth) {
+      slidesPerView = 1;
+    } else {
+      slidesPerView = 2;
+    }
+  }
+
   var swiper = new Swiper('.team__slider', {
-    autoHeight: true, //enable auto height
-    slidesPerView: 1,
+    autoHeight: true,
+    slidesPerView: slidesPerView,
     spaceBetween: 50,
+    updateOnWindowResize: true,
+    grabCursor: true,
+    
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
   });
+
+  
+  function changeSliderSettings() {
+    windowSize = document.body.clientWidth;
+
+    if (windowSize < tabletWidth) {
+      swiper.params.slidesPerView = 1;
+    } else {
+      swiper.params.slidesPerView = 2;
+    }
+
+    swiper.update();
+  };
+
+  window.addEventListener('resize', changeSliderSettings);
 })();
 
 'use strict';

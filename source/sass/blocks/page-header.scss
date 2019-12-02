@@ -3,9 +3,27 @@
   justify-content: space-between;
   align-items: center;
 
+  padding-top: 10px;
   margin-bottom: 50px;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 68px 50px;
+  }
 }
 
 .page-header__link {
   margin-right: 15px;
+
+  outline: none;
+
+  transition: color 0.3s;
+
+  @media (min-width: $tablet-width) {
+    margin-right: 10px;
+  }
+}
+
+.page-header__link:hover,
+.page-header__link:focus {
+  color: $color-red;
 }

@@ -1,5 +1,6 @@
 .page-footer {
   background-color: $color-main;
+  border-bottom: 1px solid $color-main;
 }
 
 .page-footer__info {
@@ -11,7 +12,21 @@
   line-height: 20px;
   color: rgba($color-white, 0.5);
 
-  padding: 10px 35px 45px;
+  margin: 10px $margin-mobile 45px;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    
+    margin: 10px $margin-tablet 70px;
+  }
+}
+
+.page-footer__bottom p {
+  margin: 0;
+
+  @media (min-width: $tablet-width) {
+    margin-right: 32px;
+  }
 }
 
 .page-footer__bottom a {
@@ -26,6 +41,9 @@
 }
 
 .page-footer__soc {
-  margin-bottom: 20px;
-  padding: 0 35px;
+  margin: 0 $margin-mobile 20px;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 $margin-tablet 20px;
+  }
 }

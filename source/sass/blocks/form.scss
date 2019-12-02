@@ -1,5 +1,5 @@
 .form {
-  padding: 70px 10px 70px 35px;
+  padding: 70px 35px;
 
   background-color: $color-bg;
   background-image: url("../img/footer-bg.jpg");
@@ -9,6 +9,16 @@
 
   @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
     background-image: url("../img/footer-bg@2x.jpg");
+  }
+
+  @media (min-width: $tablet-width) {
+    padding: 70px 168px;
+
+    background-image: url("../img/footer-bg-tablet.jpg");
+
+    @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+      background-image: url("../img/footer-bg-tablet@2x.jpg");
+    }
   }
 }
 
@@ -21,7 +31,7 @@
 }
 
 .form form {
-  width: 78.125vw;
+  width: 100%;
 }
 
 .form__label {
@@ -121,4 +131,16 @@
   background-color: $color-red;
   border: none;
   outline: none;
+  cursor: pointer;
+
+  transition: color 0.3s, background-color 0.3s, outline 0.3s;
+  
+  &:hover,
+  &:focus {
+    color: $color-main;
+
+    background-color: $color-white;
+
+    outline: 1px solid $color-main;
+  }
 }

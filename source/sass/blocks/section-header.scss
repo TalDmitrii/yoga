@@ -5,4 +5,8 @@
   color: $color-header;
 
   margin-top: 0;
+
+  @media (min-width: $tablet-width) {
+    font-size: 21px;
+  }
 }

@@ -2,17 +2,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 78px;
+  }
 }
 
 .intro__h1 {
   font-size: 67px;
-  font-weight: 400;
-  line-height: normal;
+  font-weight: 700;
+  line-height: 84px;
   text-align: center;
+  letter-spacing: 0.26em;
   color: $color-white;
+  text-shadow: 0px 4px 50px rgba(131, 115, 161, 0.6);
 
   margin-top: 0;
   margin-bottom: 10px;
+
+  @media (min-width: $tablet-width) {
+    font-size: 144px;
+    line-height: 160px;
+    letter-spacing: 0.34em;
+  }
 }
 
 .intro__h2 {
@@ -23,6 +35,10 @@
   text-align: center;
 
   margin: 0;
+
+  @media (min-width: $tablet-width) {
+    font-size: 24px;
+  }
 }
 
 .intro__link {
@@ -38,6 +54,9 @@
 
   padding-left: 37px;
 
+  outline: none;
+  transition: color 0.3s;
+
   &::before {
     content: "";
     position: absolute;
@@ -45,6 +64,8 @@
     left: 0;
     width: 30px;
     height: 100%;
+
+    transition: background-color 0.3s;
 
     background-color: $color-red;
     background-image: url("../img/arrow.svg");
@@ -54,7 +75,39 @@
   }
 }
 
+.intro__link:hover,
+.intro__link:focus {
+  color: $color-main;
+
+  &::before {
+    background-color: $color-main;
+  }
+}
+
 .intro__bottom {
   display: none;
+  justify-content: space-between;
   width: 100%;
+
+  margin-top: 50px;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+  }
+}
+
+.intro__soc a path {
+  fill: $color-main;
+}
+
+.intro__place {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+
+  margin: 0;
+}
+
+.intro .intro__item {
+  margin-right: 10px;
 }

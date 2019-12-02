@@ -1,5 +1,9 @@
 .company-info {
   padding: 45px 35px 0;
+
+  @media (min-width: $tablet-width) {
+    padding: 75px $margin-tablet 0;
+  }
 }
 
 .company-info__list {
@@ -7,10 +11,23 @@
 
   font-size: 14px;
   line-height: 20px;
+
+  @media (min-width: $tablet-width) {
+    max-width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .company-info__item {
   margin-bottom: 25px;
+
+  @media (min-width: $tablet-width) {
+    width: 50%;
+
+    margin-bottom: 30px;
+    padding-right: 30px;
+  }
 }
 
 .company-info__item h3 {

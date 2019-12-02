@@ -1,9 +1,17 @@
 .subscription {
   margin-bottom: 70px;
+
+  @media (min-width: $tablet-width) {
+    min-height: 420px;
+  }
 }
 
 .subscription__content-wrapper {
   margin: 0 $margin-mobile;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 $margin-tablet;
+  }
 }
 
 .subscription__header {
@@ -69,6 +77,12 @@
 
 .subscription__variation-list {
   @include indents-zero();
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
 
 .subscription__variant {
@@ -81,6 +95,20 @@
 
   background-color: $color-white;
   box-shadow: $box-shadow;
+
+  transition: width 0.3s;
+
+  cursor: pointer;
+
+  @media (min-width: $tablet-width) {
+    width: 28.2%;
+  }
+}
+
+.subscription__variant--active {
+  @media (min-width: $tablet-width) {
+    width: 35.6%;
+  }
 }
 
 .subscription__variant h3 {
@@ -90,6 +118,10 @@
 
   margin-top: 0;
   margin-bottom: 20px;
+
+  @media (min-width: $tablet-width) {
+    font-size: 18px;
+  }
 }
 
 .subscription__variant p {
@@ -100,7 +132,8 @@
   font-size: 10px;
   line-height: 15px;
   color: $color-red;
-  font-weight: 400;
+  font-weight: 700;
+  text-align: center;
 
   margin-top: 0;
   margin-bottom: 20px;
@@ -128,4 +161,34 @@
   padding: 9px 23px;
 
   background-color: $color-main;
+
+  transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+
+  &:hover,
+  &:focus {
+    color: $color-red;
+
+    background-color: $color-white;
+    outline: 1px solid $color-red;
+  }
+
+  @media (min-width: $tablet-width) {
+    min-width: 149px;
+  }
+}
+
+.subscription__variant .subscription__button {
+  @media (min-width: $tablet-width) {
+    width: 0;
+    height: 0;
+    padding: 0;
+  }
+}
+
+.subscription__variant--active .subscription__button {
+  @media (min-width: $tablet-width) {
+    width: auto;
+    height: auto;
+    padding: 9px 23px;
+  }
 }
