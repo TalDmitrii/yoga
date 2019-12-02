@@ -1,5 +1,5 @@
 .company-info {
-  padding: 45px 35px 0;
+  padding: 43px 35px 0;
 
   @media (min-width: $tablet-width) {
     padding: 75px $margin-tablet 0;
@@ -9,40 +9,47 @@
 .company-info__list {
   @include indents-zero();
 
-  font-size: 14px;
-  line-height: 20px;
+  max-width: 525px;
+  display: flex;
+  flex-wrap: wrap;
+
+  font-size: 12px;
+  line-height: 18px;
 
   @media (min-width: $tablet-width) {
     max-width: 65%;
-    display: flex;
-    flex-wrap: wrap;
   }
 }
 
 .company-info__item {
-  margin-bottom: 25px;
+  width: 50%;
+  min-width: 250px;
+
+  margin-bottom: 19px;
+  padding-right: 30px;
 
   @media (min-width: $tablet-width) {
     width: 50%;
 
     margin-bottom: 30px;
-    padding-right: 30px;
   }
 }
 
 .company-info__item h3 {
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 18px;
   font-weight: 400;
 
   margin: 0;
+  margin-bottom: 3px;
 }
 
 .company-info__item p {
-  margin-top: 0;
+  margin: 0;
 }
 
 .company-info__item a {
+  font-size: 14px;
   text-decoration: none;
   outline: none;
 

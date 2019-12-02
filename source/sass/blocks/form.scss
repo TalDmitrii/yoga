@@ -1,5 +1,5 @@
 .form {
-  padding: 70px 35px;
+  padding: 60px 35px 70px;
 
   background-color: $color-bg;
   background-image: url("../img/footer-bg.jpg");
@@ -25,6 +25,7 @@
 .form__header {
   font-size: 20px;
   line-height: 27px;
+  font-weight: 700;
 
   margin-top: 0;
   margin-bottom: 20px;
@@ -126,7 +127,7 @@
   color: $color-white;
 
   margin-top: 15px;
-  padding: 21px 36px;
+  padding: 17px 36px 19px;
 
   background-color: $color-red;
   border: none;

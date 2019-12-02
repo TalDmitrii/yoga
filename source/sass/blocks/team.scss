@@ -1,27 +1,40 @@
 .team {
-  margin-bottom: 60px;
+  margin-bottom: 50px;
+
+  background-image: url("../img/bg-elem-2.png");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-position-y: -10px;
+
+  @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+    background-image: url("../img/bg-elem-2@2x.png");
+  }
+
+  // @media (min-width: $tablet-width) {
+  //   background-image: url("../img/start-bg-tablet.png");
+
+  //   @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+  //     background-image: url("../img/start-bg-tablet@2x.png");
+  //   }
+  // }
+  
+  // @media (min-width: $desktop-width) {
+  //   background-image: url("../img/start-bg-desktop.png");
+
+  //   @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+  //     background-image: url("../img/start-bg-desktop@2x.png");
+  //   }
+  // }
 }
 
 .team__header {
-  margin-bottom: 40px;
+  margin-bottom: 31px;
 }
 
 .team__slider {
   padding: 0 46px;
-
-  // @media (min-width: $tablet-width) {
-  //   width: 100%;
-  //   height: 100%;
-  // }
 }
-
-// .team__item {
-//   @media (min-width: $tablet-width) {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//   }
-// }
 
 .team__list {
   @include indents-zero();
@@ -30,7 +43,7 @@
 .team__item-header {
   display: flex;
 
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .team__item-header img {
@@ -45,9 +58,16 @@
   justify-content: space-between;
 
   padding: 15px;
+  padding-top: 15px;
+  padding-right: 19px;
 
   background-color: $color-white;
   box-shadow: $box-shadow;
+}
+
+.team__instructor-header {
+  display: flex;
+  flex-direction: column;
 }
 
 .team__instructor-header h3 {
@@ -57,16 +77,21 @@
   font-size: 10px;
   line-height: 15px;
   color: $color-red;
+  word-break: break-word;
 
   margin: 0;
+  margin-bottom: 7px;
 }
 
 .team__instructor-header span {
   font-size: 10px;
-  line-height: 20px;
+  line-height: 15px;
+  word-break: break-word;
 }
 
 .team__instructor-soc {
+  margin: 5px 0;
+
   @media (min-width: $tablet-width) {
     display: flex;
     flex-direction: column;
@@ -126,16 +151,23 @@
 
   font-size: 10px;
   line-height: 20px;
+  font-weight: 700;
   color: $color-red;
+
+  margin-bottom: 5px;
 }
 
 .team__item-bottom p {
   font-size: 10px;
   line-height: 15px;
+  font-weight: 400;
+  
+  margin-top: 0;
+  margin-bottom: 6px;
 }
 
 .team__slider-button {
-  top: 0;
+  top: 26px;
   width: 16px;
   height: 31px;
 }

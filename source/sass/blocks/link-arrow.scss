@@ -22,3 +22,11 @@
     background-color: $color-red;
   }
 }
+
+.link-arrow.swiper-button-disabled {
+  background-color: transparent;
+  background-image: url("../img/arrow-dark.svg");
+
+  outline: 1px solid $color-main;
+  opacity: 1;
+}

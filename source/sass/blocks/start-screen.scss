@@ -1,28 +1,5 @@
 .start-screen {
-  margin-bottom: 60px;
-
-  background-image: url("../img/start-bg.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
-    background-image: url("../img/start-bg@2x.png");
-  }
-
-  @media (min-width: $tablet-width) {
-    background-image: url("../img/start-bg-tablet.png");
-
-    @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
-      background-image: url("../img/start-bg-tablet@2x.png");
-    }
-  }
-  
-  @media (min-width: $desktop-width) {
-    background-image: url("../img/start-bg-desktop.png");
-
-    @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
-      background-image: url("../img/start-bg-desktop@2x.png");
-    }
-  }
+  position: relative;
+  z-index: 2;
+  padding-bottom: 61px;
 }
