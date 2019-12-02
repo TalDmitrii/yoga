@@ -1,0 +1,55 @@
+.company-info {
+  padding: 45px 35px 0;
+
+  @media (min-width: $tablet-width) {
+    padding: 75px $margin-tablet 0;
+  }
+}
+
+.company-info__list {
+  @include indents-zero();
+
+  font-size: 14px;
+  line-height: 20px;
+
+  @media (min-width: $tablet-width) {
+    max-width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.company-info__item {
+  margin-bottom: 25px;
+
+  @media (min-width: $tablet-width) {
+    width: 50%;
+
+    margin-bottom: 30px;
+    padding-right: 30px;
+  }
+}
+
+.company-info__item h3 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+
+  margin: 0;
+}
+
+.company-info__item p {
+  margin-top: 0;
+}
+
+.company-info__item a {
+  text-decoration: none;
+  outline: none;
+
+  transition: color 0.3s;
+}
+
+.company-info__item a:hover,
+.company-info__item a:focus {
+  color: $color-red;
+}

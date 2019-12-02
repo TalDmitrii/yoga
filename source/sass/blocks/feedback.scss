@@ -1,0 +1,145 @@
+.feedback {
+  margin-bottom: 24px;
+}
+
+.feedback__header {
+  margin-bottom: 35px;
+}
+
+.feedback__slider {
+  padding: 0 20px 46px;
+  margin: 0 15px;
+
+  @media (min-width: $tablet-width) {
+    padding: 20px 30px 18px;
+  }
+}
+
+.feedback__list {
+  @include indents-zero();
+
+  margin-bottom: 30px;
+
+  // @media (min-width: $tablet-width) {
+  //   height: 604px !important;
+  // }
+}
+
+.feedback__item {
+  padding: 60px 15px 30px;
+
+  background-color: $color-white;
+  box-shadow: $box-shadow;
+  box-sizing: border-box;
+}
+
+.feedback__item p {
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.feedback__item img {
+  flex-shrink: 0;
+}
+
+.feedback__item-content {
+  display: flex;
+}
+
+.feedback__item-info {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 13px;
+}
+
+.feedback__item-info h3 {
+  font-size: 10px;
+  line-height: 15px;
+  color: rgba($color-red, 0.7);
+
+  margin: 0;
+}
+
+.feedback__item-info time {
+  font-size: 10px;
+  line-height: 20px;
+  color: rgba($color-main, 0.7);
+}
+
+.feedback__button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.feedback__slider .swiper-button-prev,
+.feedback__slider .swiper-button-next,
+.feedback__slider .swiper-pagination {
+  position: relative;
+  margin: 0;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+}
+
+.feedback__slider .swiper-button-prev,
+.feedback__slider .swiper-button-next {
+  width: 31px;
+  height: 16px;
+
+  background-size: 6px 12px;
+
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.feedback__slider .swiper-button-prev {
+  transform: rotate(180deg);
+}
+
+.feedback__slider .swiper-pagination {
+  width: auto;
+
+  font-size: 12px;
+  line-height: 16px;
+
+  margin: 0 10px;
+
+  @media (min-width: $tablet-width) {
+    position: absolute;
+    left: -5px;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0;
+  }
+}
+
+.feedback__slider .swiper-pagination-total {
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.feedback__slider .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+
+  margin: 5px;
+
+  opacity: 1;
+
+  background-color: $color-main;
+  box-sizing: border-box;
+}
+
+.feedback__slider .swiper-pagination-bullet-active {
+  width: 14px;
+  height: 14px;
+
+  background-color: $color-red;
+}
