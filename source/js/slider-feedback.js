@@ -3,6 +3,7 @@
 (function () {
   var windowSize;
   var tabletWidth = 768;
+  var desktopWidth = 1440;
   var slidesPerView;
   var sliderSpaceBetween;
   var sliderTypePagination;
@@ -17,10 +18,15 @@
       sliderSpaceBetween = 50;
       sliderTypePagination = 'fraction';
       
-    } else {
+    } else if ((windowSize >= tabletWidth) && (windowSize < desktopWidth)) {
       slidesPerView = 2;
       sliderSpaceBetween = 50;
       sliderTypePagination = 'bullets';
+
+    } else if (windowSize >= desktopWidth) {
+      slidesPerView = 2;
+      sliderSpaceBetween = 40;
+      sliderTypePagination = 'custom';
     }
   }
 

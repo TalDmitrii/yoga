@@ -3,12 +3,22 @@
   line-height: 15px;
   font-weight: 700;
   color: $color-red;
+
+  @media (min-width: $desktop-width) {
+    font-size: 12px;
+    line-height: 15px;
+  }
 }
 
 .instructor h3 {
+  margin: 0;
+
   font-size: 10px;
 
-  margin: 0;
+  @media (min-width: $desktop-width) {
+    font-size: 12px;
+    line-height: 15px;
+  }
 }
 
 .instructor p {

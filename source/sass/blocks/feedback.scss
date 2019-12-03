@@ -1,9 +1,17 @@
 .feedback {
   margin-bottom: 24px;
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: 140px;
+  }
 }
 
 .feedback__header {
   margin-bottom: 15px;
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: 40px;
+  }
 }
 
 .feedback__slider {
@@ -13,12 +21,23 @@
   @media (min-width: $tablet-width) {
     padding: 20px 30px 18px;
   }
+
+  @media (min-width: $desktop-width) {
+    max-width: 940px;
+
+    margin: 0 auto;
+    padding: 20px 20px;
+  }
 }
 
 .feedback__list {
   @include indents-zero();
 
   margin-bottom: 30px;
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: 0;
+  }
 }
 
 .feedback__item {
@@ -30,6 +49,12 @@
   background-position: 16px 15px;
   box-shadow: $box-shadow;
   box-sizing: border-box;
+
+  @media (min-width: $desktop-width) {
+    padding: 70px 50px 30px 87px;
+
+    background-position: 87px 33px;
+  }
 }
 
 .feedback__item p {
@@ -38,6 +63,11 @@
 
   margin-top: 0;
   margin-bottom: 15px;
+
+  @media (min-width: $desktop-width) {
+    font-size: 12px;
+    line-height: 20px;
+  }
 }
 
 .feedback__item img {
@@ -101,10 +131,33 @@
   @media (min-width: $tablet-width) {
     display: none;
   }
+
+  @media (min-width: $desktop-width) {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 30px;
+
+    background-size: 8px 16px;
+  }
 }
 
 .feedback__slider .swiper-button-prev {
   transform: rotate(180deg);
+
+  @media (min-width: $desktop-width) {
+    left: 3px;
+
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
+.feedback__slider .swiper-button-next {
+  @media (min-width: $desktop-width) {
+    right: 3px;
+  }
 }
 
 .feedback__slider .swiper-pagination {
@@ -124,6 +177,10 @@
     align-items: center;
 
     margin: 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    display: none;
   }
 }
 

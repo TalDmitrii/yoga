@@ -7,7 +7,15 @@
   margin-bottom: 49px;
 
   @media (min-width: $tablet-width) {
-    margin: 0 68px 50px;
+    padding-top: 25px;
+    margin: 0 68px 35px;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: 1180px;
+
+    margin: 0 auto 90px;
+    padding-top: 55px;
   }
 }
 

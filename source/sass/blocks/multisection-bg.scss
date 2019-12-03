@@ -1,0 +1,13 @@
+.multisection-bg {
+  @media (min-width: $desktop-width) {
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left top;
+
+    background-image: url("../img/bg-elem-2-desktop.png");
+
+    @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+      background-image: url("../img/bg-elem-2-desktop@2x.png");
+    }
+  }
+}
