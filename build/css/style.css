@@ -1054,6 +1054,24 @@ button.swiper-pagination-bullet {
     .direction {
       background-image: url("../img/bg-elem-1-desktop@2x.png"); } }
 
+.webp .direction {
+  background-image: url("../img/webp/bg-elem-1.webp"); }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    .webp .direction {
+      background-image: url("../img/webp/bg-elem-1@2x.webp"); } }
+  @media (min-width: 768px) {
+    .webp .direction {
+      background-image: url("../img/webp/bg-elem-1-tablet.webp"); } }
+  @media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 768px) and (min-resolution: 144dpi), (min-width: 768px) and (min-resolution: 1.5dppx) {
+    .webp .direction {
+      background-image: url("../img/webp/bg-elem-1-tablet@2x.webp"); } }
+  @media (min-width: 1440px) {
+    .webp .direction {
+      background-image: url("../img/webp/bg-elem-1-desktop.webp"); } }
+  @media (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 1440px) and (min-resolution: 144dpi), (min-width: 1440px) and (min-resolution: 1.5dppx) {
+    .webp .direction {
+      background-image: url("../webp/img/bg-elem-1-desktop@2x.webp"); } }
+
 .direction__header {
   margin-bottom: 32px; }
   @media (min-width: 1440px) {
@@ -2753,3 +2771,21 @@ button.swiper-pagination-bullet {
   @media (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 1440px) and (min-resolution: 144dpi), (min-width: 1440px) and (min-resolution: 1.5dppx) {
     .top-bg {
       background-image: url("../img/start-bg-desktop@2x.png"); } }
+
+.webp .top-bg {
+  background-image: url("../img/webp/start-bg.webp"); }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    .webp .top-bg {
+      background-image: url("../img/webp/start-bg@2x.webp"); } }
+  @media (min-width: 768px) {
+    .webp .top-bg {
+      background-image: url("../img/webp/start-bg-tablet.webp"); } }
+  @media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 768px) and (min-resolution: 144dpi), (min-width: 768px) and (min-resolution: 1.5dppx) {
+    .webp .top-bg {
+      background-image: url("../img/webp/start-bg-tablet@2x.webp"); } }
+  @media (min-width: 1440px) {
+    .webp .top-bg {
+      background-image: url("../img/webp/start-bg-desktop.webp"); } }
+  @media (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 1440px) and (min-resolution: 144dpi), (min-width: 1440px) and (min-resolution: 1.5dppx) {
+    .webp .top-bg {
+      background-image: url("../img/webp/start-bg-desktop@2x.webp"); } }
