@@ -5,11 +5,7 @@
 
   if (!form) return;
 
-  var inputs = form.querySelectorAll('input');
-  var btnSubmit = form.querySelector('.js-form-button');
-  var checkStatus = false;
-  ESC_CODE = 27;
-  
+  var inputs = form.querySelectorAll('input');  
 
   // Обработка полей формы.
   // 
@@ -45,34 +41,6 @@
           inputParent.classList.remove('form__label--valid');
         }
       }
-
-
-      // Смена цвета кнопки отправки.
-      // Проверяет валидность всех инпутов.
-      for (var i = 0; i < inputs.length; i++) {
-        if (inputs[i].validity.valid === false) {
-          checkStatus = false;
-        } else {
-          checkStatus = true;
-        }
-      }
-
-        // // Если все инпуты валидны, меняет цвет кнопки
-        // if (checkStatus === true) {
-
-        //     if (btnSubmit.classList.contains('order-form__button--standart')) {
-        //       btnSubmit.classList.remove('order-form__button--standart');
-        //     }
-        //     btnSubmit.classList.add('order-form__button--ready');
-
-        // } else {
-
-        //     if (btnSubmit.classList.contains('order-form__button--ready')) {
-        //       btnSubmit.classList.remove('order-form__button--ready');
-        //     }
-
-        //     btnSubmit.classList.add('order-form__button--standart');
-        // }
     }, 100);
   }
 })();

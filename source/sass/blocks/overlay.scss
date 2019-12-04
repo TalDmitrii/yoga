@@ -1,0 +1,17 @@
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  opacity: 0.8;
+
+  background-color: $color-white;
+}
+
+.overlay--open {
+  display: block;
+}
