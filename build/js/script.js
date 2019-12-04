@@ -1,143 +1,182 @@
+'use strict';
+
 (function () {
-    var form = document.querySelector('.js-form');
+  var SUCCESS_RESPONSE_STATUS = 200;
 
-    if (!form) return;
+  // Отправляет данные на сервер.
+  // @param {object} data - Содержит данные формы, которые будут отправлены на сервер.
+  // @param {function} onLoad - Функция обратного вызова, которая срабатывает при успешном выполнении запроса.
+  // @param {function} onError - Функция обратного вызова, которая срабатывает при неуспешном выполнении запроса.
+  function upload(data, onLoad, onError) {
+    var URL = 'https://echo.htmlacademy.ru';
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'json';
 
-    // var formOverlay = document.querySelector('.order-form__overlay');
-    // var successMessage = document.querySelector('.order-form__message--success');
-    // var errorMessage = document.querySelector('.order-form__message--error');
+    xhr.addEventListener('load', function () {
+      if (xhr.status === SUCCESS_RESPONSE_STATUS) {
+        onLoad(xhr.status);
+      } else {
+        onError(xhr);
+      }
+    });
 
-    ESC_CODE = 27;
+    xhr.open('POST', URL);
+    xhr.send(data);
+  }
 
-
-    // // Отправляет данные формы.
-    // form.addEventListener('submit', function (evt) {
-    //     // Сбрасывает стандартное поведение формы.
-    //     evt.preventDefault();
-
-    //     window.backend.upload(new FormData(form), successUploadForm, errorUploadForm);
-    // });
-
-
-    // // Функция сообщает об успешной попытке загрузки данных.
-    // function successUploadForm() {
-    //     // Показывает оверлей.
-    //     showOverlay();
-
-    //     // Сбрасывает все значения формы, цвет кнопки.
-    //     setCustomValue();
-    //     btnSubmit.classList.remove('order-form__button--ready');
-    //     btnSubmit.classList.add('order-form__button--standart');
-
-    //     // Показывает сообщение об успешной попытке загрузки данных.
-    //     showMessage(true);
-    // }
-
-
-    // // Функция сообщает о неуспешной попытке загрузки данных.
-    // function errorUploadForm() {
-    //     // Показывает оверлей.
-    //     showOverlay();
-
-    //     // Показывает сообщение о неуспешной попытке загрузки данных.
-    //     showMessage(false);
-    // }
-
-
-    // // Функция показывает оверлей на фоне сообщения.
-    // function showOverlay() {
-    //     if (formOverlay.classList.contains('order-form__overlay--animation-closed')) {
-    //         formOverlay.classList.remove('order-form__overlay--animation-closed');
-    //     }
-    //     formOverlay.classList.remove('order-form__overlay--hidden');
-    //     formOverlay.classList.add('order-form__overlay--animation-opened');
-    // }
-
-
-    // // Сбрасывает значения полей ввода.
-    // function setCustomValue() {
-    //     for (var i = 0; i < inputs.length; i++) {
-    //         inputs[i].value = '';
-    //         inputs[i].classList.remove('form__label--valid');
-    //     }
-    // }
-
-
-    // // Показывает сообщение об успешной/неуспешной попытке загрузки данных.
-    // // @param {boolean} isSuccess - Отправлено/Неотправлено.
-    // function showMessage(isSuccess) {
-    //     if (isSuccess) {
-    //         openMessage(successMessage);
-
-    //         window.addEventListener('keydown', onWindowSuccessMessageKeydown);
-    //         window.addEventListener('click', onWindowSuccessMessageClick);   
-
-    //     } else {
-    //         openMessage(errorMessage);
-
-    //         window.addEventListener('keydown', onWindowErrorMessageKeydown);
-    //         window.addEventListener('click', onWindowErrorMessageClick);
-    //     }
-    // }
-
-
-    // // Открывает определённое сообщение о попытке загрузки данных.
-    // function openMessage(message) {
-    //     if (message.classList.contains('order-form__message--animation-closed')) {
-    //         message.classList.remove('order-form__message--animation-closed');
-    //     }
-    //     message.classList.remove('order-form__message--hidden');
-    //     message.classList.add('order-form__message--animation-opened');
-    // }
-
-
-    // // Закрывает сообщение об успешной отправке формы.
-    // function onWindowSuccessMessageKeydown(evt) {
-    //     if (evt.keyCode === ESC_CODE) {
-    //         onWindowSuccessMessageClick();
-    //     }
-    // }
-
-    
-    // // Закрывает сообщение об успешной отправке формы.
-    // function onWindowSuccessMessageClick() {
-    //     successMessage.classList.add('order-form__message--animation-closed');
-    //     successMessage.classList.remove('order-form__message--animation-opened');
-
-    //     closeOverlay();
-
-    //     window.removeEventListener('keydown', onWindowSuccessMessageKeydown);
-    //     window.removeEventListener('click', onWindowSuccessMessageClick);
-    // }
-
-
-    // // Закрывает сообщение о неуспешной отправке формы.
-    // function onWindowErrorMessageKeydown(evt) {
-    //     if (evt.keyCode === ESC_CODE) {
-    //         onWindowErrorMessageClick()
-    //     }
-    // }
-
-    
-    // // Закрывает сообщение о неуспешной отправке формы.
-    // function onWindowErrorMessageClick() {
-    //     errorMessage.classList.add('order-form__message--animation-closed');
-    //     errorMessage.classList.remove('order-form__message--animation-opened');
-
-    //     closeOverlay();
-
-    //     window.removeEventListener('keydown', onWindowErrorMessageKeydown);
-    //     window.removeEventListener('click', onWindowErrorMessageClick);
-    // }
-
-
-    // // Функция скрывает оверлей на фоне сообщения.
-    // function closeOverlay() {
-    //     formOverlay.classList.add('order-form__overlay--animation-closed');
-    //     formOverlay.classList.remove('order-form__overlay--animation-opened');
-    // }
-
+  // Экспортирует в глобальную область видимости функции для взаимодействия с удаленным севером через XHR.
+  window.backend = {
+    upload: upload
+  };
 })();
+
+'use strict';
+
+(function () {
+  var page = document.querySelector('body');
+  var form = page.querySelector('.js-form');
+
+  if (!form) return;
+
+  var inputs = form.querySelectorAll('input');
+  var overlay = page.querySelector('.overlay');
+  var successMessage = page.querySelector('#success').content.querySelector('.success');
+  var errorMessage = page.querySelector('#error').content.querySelector('.error');
+  var message;
+  var closeMessageButton;
+  var ESC_CODE = 27; 
+
+
+  // Отправляет данные формы.
+  form.addEventListener('submit', function (evt) {
+    // Сбрасывает стандартное поведение формы.
+    evt.preventDefault();
+
+    window.backend.upload(new FormData(form), successUploadForm, errorUploadForm);
+  });
+
+  // Функция сообщает о неуспешной попытке загрузки данных.
+  function errorUploadForm() {
+    // Показывает оверлей.
+    showOverlay()
+
+    // Показывает сообщение о неудачной попытке загрузки данных.
+    renderMessage(false);
+
+    // Сбрасывает все значения формы.
+    setCustomValue();
+  }
+
+  // Функция сообщает об успешной попытке загрузки данных.
+  function successUploadForm() {
+    // Показывает оверлей.
+    showOverlay()
+
+    // Показывает сообщение об удачной попытке загрузки данных.
+    renderMessage(true);
+
+    // Сбрасывает все значения формы.
+    setCustomValue();
+  }
+
+  // Показывает оверлей, убирает скролл на странице.
+  function showOverlay() {
+    overlay.classList.add('overlay--open');
+    bodyScrollLock.disableBodyScroll(page);
+  }
+
+  // Скрывает оверлей, добавляет скролл на страницу.
+  function removeOverlay() {
+    overlay.classList.remove('overlay--open');
+    bodyScrollLock.enableBodyScroll(page);
+  }
+
+  // Удаляет информационное сообщение.
+  function removeMessage() {
+    page.removeChild(message);
+  }
+
+  // Сбрасывает все значения формы на начальные.
+  function setCustomValue() {
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].value = '';
+      inputs[i].blur();
+      inputs[i].parentElement.classList.remove('form__label--valid');
+    }
+  }
+
+  // Создаёт сообщение о загрузке данных из формы, добавляет обработчики закрытия сообщения.
+  // @param {object} isSuccess - Статус сообщения: отправлено или нет.
+  function renderMessage(isSuccess) {
+    // Создаёт сообщение на основе шаблона в зависимости от статуса 'успешно/неуспешно'.
+    if (isSuccess) {
+      message = successMessage.cloneNode(true);
+      closeMessageButton = message.querySelector('.success__button');
+    } else if (!isSuccess) {
+      message = errorMessage.cloneNode(true);
+      closeMessageButton = message.querySelector('.error__buttons');
+    }
+
+    // Добавляет сообщение в 'body'.
+    page.appendChild(message);
+
+    // Добавляет анимацию сообщения.
+    message.classList.add('modal-form--open');
+
+    // Обработчик закрывает сообщение об отправке данных по ESC.
+    document.addEventListener('keydown', onCloseMessageKeydown);
+
+    // Обработчик закрывает сообщение об отправке данных при клике по произвольной области.
+    document.addEventListener('click', onWindowClick);
+
+    // Обработчик закрывает сообщение об отправке данных при клике по кнопке.
+    closeMessageButton.addEventListener('click', onButtonCloseClick);
+  }
+
+  // Закрывает сообщение об отправке данных по ESC.
+  function onCloseMessageKeydown(evt) {
+    if (evt.keyCode === ESC_CODE) {
+      message.classList.remove('modal-form--open');
+      message.classList.add('modal-form--close');
+
+      setTimeout(removeOverlay, 400);
+      setTimeout(removeMessage, 1000);
+
+      document.removeEventListener('keydown', onCloseMessageKeydown);
+      document.removeEventListener('click', onWindowClick);
+      closeMessageButton.removeEventListener('click', onButtonCloseClick);
+    }
+  }
+
+  // Закрывает сообщение об отправке данных при клике по произвольной области.
+  function onWindowClick(evt) {
+    if (evt.target.className === overlay.className) {
+      message.classList.remove('modal-form--open');
+      message.classList.add('modal-form--close');
+
+      setTimeout(removeOverlay, 400);
+      setTimeout(removeMessage, 1000);
+
+      document.removeEventListener('keydown', onCloseMessageKeydown);
+      document.removeEventListener('click', onWindowClick);
+      closeMessageButton.removeEventListener('click', onButtonCloseClick);
+    }
+  }
+
+  // Закрывает сообщение об отправке данных по клику.
+  function onButtonCloseClick() {
+    message.classList.remove('modal-form--open');
+    message.classList.add('modal-form--close');
+
+    setTimeout(removeOverlay, 400);
+    setTimeout(removeMessage, 1000);
+
+    document.removeEventListener('keydown', onCloseMessageKeydown);
+    document.removeEventListener('click', onWindowClick);
+    closeMessageButton.removeEventListener('click', onButtonCloseClick);
+  }
+})();
+
 'use strict';
 
 (function () {
@@ -181,11 +220,7 @@
 
   if (!form) return;
 
-  var inputs = form.querySelectorAll('input');
-  var btnSubmit = form.querySelector('.js-form-button');
-  var checkStatus = false;
-  ESC_CODE = 27;
-  
+  var inputs = form.querySelectorAll('input');  
 
   // Обработка полей формы.
   // 
@@ -221,34 +256,6 @@
           inputParent.classList.remove('form__label--valid');
         }
       }
-
-
-      // Смена цвета кнопки отправки.
-      // Проверяет валидность всех инпутов.
-      for (var i = 0; i < inputs.length; i++) {
-        if (inputs[i].validity.valid === false) {
-          checkStatus = false;
-        } else {
-          checkStatus = true;
-        }
-      }
-
-        // // Если все инпуты валидны, меняет цвет кнопки
-        // if (checkStatus === true) {
-
-        //     if (btnSubmit.classList.contains('order-form__button--standart')) {
-        //       btnSubmit.classList.remove('order-form__button--standart');
-        //     }
-        //     btnSubmit.classList.add('order-form__button--ready');
-
-        // } else {
-
-        //     if (btnSubmit.classList.contains('order-form__button--ready')) {
-        //       btnSubmit.classList.remove('order-form__button--ready');
-        //     }
-
-        //     btnSubmit.classList.add('order-form__button--standart');
-        // }
     }, 100);
   }
 })();
@@ -259,27 +266,94 @@
 
   if (!mainNav) return;
 
+  var desktopWidth = 1440;
+  var ESC_CODE = 27;
+
+  var elemToHidden = document.querySelector('.page-header__link');
   var navToggle = mainNav.querySelector('.js-navigation__toggle');
   var navList = mainNav.querySelector('.js-navigation__list');
+  var overlay = document.querySelector('.js-overlay');
 
   // Скрывает меню.
   navList.classList.add('main-navigation__list--hidden');
 
   navToggle.addEventListener('click', function () {
     if (navList.classList.contains('main-navigation__list--hidden')) {
-      navList.classList.remove('main-navigation__list--hidden');
+      openMenu();
 
-      navToggle.classList.remove('main-navigation__toggle--open');
-      navToggle.classList.add('main-navigation__toggle--closed');
+      navList.addEventListener('click', onMenuClick);
+      window.addEventListener('keydown', onEscKeydown);
+      window.addEventListener('click', onWindowClick);
+
     } else {
-      navList.classList.add('main-navigation__list--hidden');
+      closeMenu();
 
-      navToggle.classList.add('main-navigation__toggle--open');
-      navToggle.classList.remove('main-navigation__toggle--closed');
+      navList.removeEventListener('click', onMenuClick);
+      window.removeEventListener('keydown', onEscKeydown);
+      window.removeEventListener('click', onWindowClick);
     }
   });
 
-  // console.log(navList, navToggle);
+  function openMenu() {
+    navList.classList.remove('main-navigation__list--hidden');
+
+    navToggle.classList.remove('main-navigation__toggle--open');
+    navToggle.classList.add('main-navigation__toggle--closed');
+
+    if (document.body.clientWidth < desktopWidth) {
+      bodyScrollLock.disableBodyScroll(navList);
+      elemToHidden.style.display = 'none';
+      overlay.classList.add('overlay--open');
+    }
+  }
+
+  function closeMenu() {
+    navList.classList.add('main-navigation__list--hidden');
+
+    navToggle.classList.add('main-navigation__toggle--open');
+    navToggle.classList.remove('main-navigation__toggle--closed');
+
+    if (document.body.clientWidth < desktopWidth) {
+      bodyScrollLock.enableBodyScroll(navList);
+      elemToHidden.style.display = 'block';
+      overlay.classList.remove('overlay--open');
+    }
+  }
+
+  function onMenuClick(evt) {
+    var target = this;
+
+    if (target.classList.contains('js-navigation__list')) {
+      closeMenu();
+    }
+  }
+
+  function onEscKeydown(evt) {
+    if (evt.keyCode === ESC_CODE) {
+      closeMenu();
+    }
+  }
+
+  function onWindowClick(evt) {
+    var eventPath = evt.path;
+    var isElemParent = false;
+    var isToggle = false;
+
+    for (var i = 0; i < eventPath.length - 2; i++) {
+      if (eventPath[i].classList.contains('js-navigation')) {
+        isElemParent = true;
+      }
+
+      if (eventPath[i].classList.contains('js-navigation__toggle')) {
+        isToggle = true;
+      }
+    }
+
+    if (!isToggle && !isElemParent) {
+      closeMenu();
+    }
+  }
+  
 })();
 'use strict';
 
@@ -292,6 +366,20 @@
     });
   }
 })();
+
+'use strict';
+
+(function ($) {
+  $('body').on('click', '[href*="#"]', function (evt) {
+    var fixedOffset = 0;
+    if ($(this.hash).offset() !== undefined) {
+      evt.preventDefault();
+      $('html,body').stop().animate({
+        scrollTop: $(this.hash).offset().top - fixedOffset
+      }, 1000);
+    }
+  });
+})(jQuery);
 
 'use strict';
 

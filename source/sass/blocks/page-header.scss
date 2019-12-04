@@ -1,4 +1,6 @@
 .page-header {
+  position: relative;
+  z-index: 101;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,10 +18,14 @@
 
     margin: 0 auto 90px;
     padding-top: 55px;
+
+    align-items: flex-start;
   }
 }
 
 .page-header__link {
+  flex-shrink: 0;
+
   margin-right: 15px;
 
   outline: none;
@@ -28,6 +34,10 @@
 
   @media (min-width: $tablet-width) {
     margin-right: 10px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-top: 10px;
   }
 }
 

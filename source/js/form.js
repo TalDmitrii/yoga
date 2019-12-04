@@ -1,140 +1,146 @@
+'use strict';
+
 (function () {
-    var form = document.querySelector('.js-form');
+  var page = document.querySelector('body');
+  var form = page.querySelector('.js-form');
 
-    if (!form) return;
+  if (!form) return;
 
-    // var formOverlay = document.querySelector('.order-form__overlay');
-    // var successMessage = document.querySelector('.order-form__message--success');
-    // var errorMessage = document.querySelector('.order-form__message--error');
-
-    ESC_CODE = 27;
-
-
-    // // Отправляет данные формы.
-    // form.addEventListener('submit', function (evt) {
-    //     // Сбрасывает стандартное поведение формы.
-    //     evt.preventDefault();
-
-    //     window.backend.upload(new FormData(form), successUploadForm, errorUploadForm);
-    // });
+  var inputs = form.querySelectorAll('input');
+  var overlay = page.querySelector('.overlay');
+  var successMessage = page.querySelector('#success').content.querySelector('.success');
+  var errorMessage = page.querySelector('#error').content.querySelector('.error');
+  var message;
+  var closeMessageButton;
+  var ESC_CODE = 27; 
 
 
-    // // Функция сообщает об успешной попытке загрузки данных.
-    // function successUploadForm() {
-    //     // Показывает оверлей.
-    //     showOverlay();
+  // Отправляет данные формы.
+  form.addEventListener('submit', function (evt) {
+    // Сбрасывает стандартное поведение формы.
+    evt.preventDefault();
 
-    //     // Сбрасывает все значения формы, цвет кнопки.
-    //     setCustomValue();
-    //     btnSubmit.classList.remove('order-form__button--ready');
-    //     btnSubmit.classList.add('order-form__button--standart');
+    window.backend.upload(new FormData(form), successUploadForm, errorUploadForm);
+  });
 
-    //     // Показывает сообщение об успешной попытке загрузки данных.
-    //     showMessage(true);
-    // }
+  // Функция сообщает о неуспешной попытке загрузки данных.
+  function errorUploadForm() {
+    // Показывает оверлей.
+    showOverlay()
 
+    // Показывает сообщение о неудачной попытке загрузки данных.
+    renderMessage(false);
 
-    // // Функция сообщает о неуспешной попытке загрузки данных.
-    // function errorUploadForm() {
-    //     // Показывает оверлей.
-    //     showOverlay();
+    // Сбрасывает все значения формы.
+    setCustomValue();
+  }
 
-    //     // Показывает сообщение о неуспешной попытке загрузки данных.
-    //     showMessage(false);
-    // }
+  // Функция сообщает об успешной попытке загрузки данных.
+  function successUploadForm() {
+    // Показывает оверлей.
+    showOverlay()
 
+    // Показывает сообщение об удачной попытке загрузки данных.
+    renderMessage(true);
 
-    // // Функция показывает оверлей на фоне сообщения.
-    // function showOverlay() {
-    //     if (formOverlay.classList.contains('order-form__overlay--animation-closed')) {
-    //         formOverlay.classList.remove('order-form__overlay--animation-closed');
-    //     }
-    //     formOverlay.classList.remove('order-form__overlay--hidden');
-    //     formOverlay.classList.add('order-form__overlay--animation-opened');
-    // }
+    // Сбрасывает все значения формы.
+    setCustomValue();
+  }
 
+  // Показывает оверлей, убирает скролл на странице.
+  function showOverlay() {
+    overlay.classList.add('overlay--open');
+    bodyScrollLock.disableBodyScroll(page);
+  }
 
-    // // Сбрасывает значения полей ввода.
-    // function setCustomValue() {
-    //     for (var i = 0; i < inputs.length; i++) {
-    //         inputs[i].value = '';
-    //         inputs[i].classList.remove('form__label--valid');
-    //     }
-    // }
+  // Скрывает оверлей, добавляет скролл на страницу.
+  function removeOverlay() {
+    overlay.classList.remove('overlay--open');
+    bodyScrollLock.enableBodyScroll(page);
+  }
 
+  // Удаляет информационное сообщение.
+  function removeMessage() {
+    page.removeChild(message);
+  }
 
-    // // Показывает сообщение об успешной/неуспешной попытке загрузки данных.
-    // // @param {boolean} isSuccess - Отправлено/Неотправлено.
-    // function showMessage(isSuccess) {
-    //     if (isSuccess) {
-    //         openMessage(successMessage);
+  // Сбрасывает все значения формы на начальные.
+  function setCustomValue() {
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].value = '';
+      inputs[i].blur();
+      inputs[i].parentElement.classList.remove('form__label--valid');
+    }
+  }
 
-    //         window.addEventListener('keydown', onWindowSuccessMessageKeydown);
-    //         window.addEventListener('click', onWindowSuccessMessageClick);   
+  // Создаёт сообщение о загрузке данных из формы, добавляет обработчики закрытия сообщения.
+  // @param {object} isSuccess - Статус сообщения: отправлено или нет.
+  function renderMessage(isSuccess) {
+    // Создаёт сообщение на основе шаблона в зависимости от статуса 'успешно/неуспешно'.
+    if (isSuccess) {
+      message = successMessage.cloneNode(true);
+      closeMessageButton = message.querySelector('.success__button');
+    } else if (!isSuccess) {
+      message = errorMessage.cloneNode(true);
+      closeMessageButton = message.querySelector('.error__buttons');
+    }
 
-    //     } else {
-    //         openMessage(errorMessage);
+    // Добавляет сообщение в 'body'.
+    page.appendChild(message);
 
-    //         window.addEventListener('keydown', onWindowErrorMessageKeydown);
-    //         window.addEventListener('click', onWindowErrorMessageClick);
-    //     }
-    // }
+    // Добавляет анимацию сообщения.
+    message.classList.add('modal-form--open');
 
+    // Обработчик закрывает сообщение об отправке данных по ESC.
+    document.addEventListener('keydown', onCloseMessageKeydown);
 
-    // // Открывает определённое сообщение о попытке загрузки данных.
-    // function openMessage(message) {
-    //     if (message.classList.contains('order-form__message--animation-closed')) {
-    //         message.classList.remove('order-form__message--animation-closed');
-    //     }
-    //     message.classList.remove('order-form__message--hidden');
-    //     message.classList.add('order-form__message--animation-opened');
-    // }
+    // Обработчик закрывает сообщение об отправке данных при клике по произвольной области.
+    document.addEventListener('click', onWindowClick);
 
+    // Обработчик закрывает сообщение об отправке данных при клике по кнопке.
+    closeMessageButton.addEventListener('click', onButtonCloseClick);
+  }
 
-    // // Закрывает сообщение об успешной отправке формы.
-    // function onWindowSuccessMessageKeydown(evt) {
-    //     if (evt.keyCode === ESC_CODE) {
-    //         onWindowSuccessMessageClick();
-    //     }
-    // }
+  // Закрывает сообщение об отправке данных по ESC.
+  function onCloseMessageKeydown(evt) {
+    if (evt.keyCode === ESC_CODE) {
+      message.classList.remove('modal-form--open');
+      message.classList.add('modal-form--close');
 
-    
-    // // Закрывает сообщение об успешной отправке формы.
-    // function onWindowSuccessMessageClick() {
-    //     successMessage.classList.add('order-form__message--animation-closed');
-    //     successMessage.classList.remove('order-form__message--animation-opened');
+      setTimeout(removeOverlay, 400);
+      setTimeout(removeMessage, 1000);
 
-    //     closeOverlay();
+      document.removeEventListener('keydown', onCloseMessageKeydown);
+      document.removeEventListener('click', onWindowClick);
+      closeMessageButton.removeEventListener('click', onButtonCloseClick);
+    }
+  }
 
-    //     window.removeEventListener('keydown', onWindowSuccessMessageKeydown);
-    //     window.removeEventListener('click', onWindowSuccessMessageClick);
-    // }
+  // Закрывает сообщение об отправке данных при клике по произвольной области.
+  function onWindowClick(evt) {
+    if (evt.target.className === overlay.className) {
+      message.classList.remove('modal-form--open');
+      message.classList.add('modal-form--close');
 
+      setTimeout(removeOverlay, 400);
+      setTimeout(removeMessage, 1000);
 
-    // // Закрывает сообщение о неуспешной отправке формы.
-    // function onWindowErrorMessageKeydown(evt) {
-    //     if (evt.keyCode === ESC_CODE) {
-    //         onWindowErrorMessageClick()
-    //     }
-    // }
+      document.removeEventListener('keydown', onCloseMessageKeydown);
+      document.removeEventListener('click', onWindowClick);
+      closeMessageButton.removeEventListener('click', onButtonCloseClick);
+    }
+  }
 
-    
-    // // Закрывает сообщение о неуспешной отправке формы.
-    // function onWindowErrorMessageClick() {
-    //     errorMessage.classList.add('order-form__message--animation-closed');
-    //     errorMessage.classList.remove('order-form__message--animation-opened');
+  // Закрывает сообщение об отправке данных по клику.
+  function onButtonCloseClick() {
+    message.classList.remove('modal-form--open');
+    message.classList.add('modal-form--close');
 
-    //     closeOverlay();
+    setTimeout(removeOverlay, 400);
+    setTimeout(removeMessage, 1000);
 
-    //     window.removeEventListener('keydown', onWindowErrorMessageKeydown);
-    //     window.removeEventListener('click', onWindowErrorMessageClick);
-    // }
-
-
-    // // Функция скрывает оверлей на фоне сообщения.
-    // function closeOverlay() {
-    //     formOverlay.classList.add('order-form__overlay--animation-closed');
-    //     formOverlay.classList.remove('order-form__overlay--animation-opened');
-    // }
-
+    document.removeEventListener('keydown', onCloseMessageKeydown);
+    document.removeEventListener('click', onWindowClick);
+    closeMessageButton.removeEventListener('click', onButtonCloseClick);
+  }
 })();

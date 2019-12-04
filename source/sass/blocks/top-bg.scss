@@ -3,7 +3,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 336px;
 
   background-image: url("../img/start-bg.png");
@@ -32,6 +32,30 @@
 
     @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
       background-image: url("../img/start-bg-desktop@2x.png");
+    }
+  }
+}
+
+.webp .top-bg {
+  background-image: url("../img/webp/start-bg.webp");
+
+  @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+    background-image: url("../img/webp/start-bg@2x.webp");
+  }
+
+  @media (min-width: $tablet-width) {
+    background-image: url("../img/webp/start-bg-tablet.webp");
+
+    @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+      background-image: url("../img/webp/start-bg-tablet@2x.webp");
+    }
+  }
+  
+  @media (min-width: $desktop-width) {
+    background-image: url("../img/webp/start-bg-desktop.webp");
+
+    @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+      background-image: url("../img/webp/start-bg-desktop@2x.webp");
     }
   }
 }

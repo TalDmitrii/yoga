@@ -40,6 +40,30 @@
   }
 }
 
+.webp .direction {
+  background-image: url("../img/webp/bg-elem-1.webp");
+
+  @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+    background-image: url("../img/webp/bg-elem-1@2x.webp");
+  }
+
+  @media (min-width: $tablet-width) {
+    background-image: url("../img/webp/bg-elem-1-tablet.webp");
+
+    @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+      background-image: url("../img/webp/bg-elem-1-tablet@2x.webp");
+    }
+  }
+  
+  @media (min-width: $desktop-width) {
+    background-image: url("../img/webp/bg-elem-1-desktop.webp");
+
+    @media (min-resolution: $retina2x-dpi), (min-resolution: $retina2x-dppx) {
+      background-image: url("../img/webp/bg-elem-1-desktop@2x.webp");
+    }
+  }
+}
+
 .direction__header {
   margin-bottom: 32px;
 

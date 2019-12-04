@@ -117,7 +117,7 @@ gulp.task('build', (done) => {
   run(
     'clean',
     'sprite',
-    'webp',
+    // 'webp',
     'copy',
     'style',
     'html',
